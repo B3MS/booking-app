@@ -8,10 +8,10 @@
 <body>
     <div class="container">
         <nav>
-
+            <a href="./signup.php">Sign Up</a>
         </nav>
         <div class="content">
-            
+
         </div>
     </div>
 </body>
