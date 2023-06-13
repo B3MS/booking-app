@@ -8,6 +8,13 @@
 </head>
 <body>
     <div class="container">
+        <?php
+            session_start();
+            if(isset($_SESSION["errorMessage"])){
+                echo "<div class='error'>" . $_SESSION['errorMessage'] . "</div>";
+                unset($_SESSION['errorMessage']);
+            }
+        ?>
         <form action="signupHandler.php" method="post">
             <div class="inputs">
                 <label for="username">Username: </label>
