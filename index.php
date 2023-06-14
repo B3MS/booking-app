@@ -8,7 +8,18 @@
 <body>
     <div class="container">
         <nav>
-            <a href="./signup.php">Sign Up</a>
+            <?php
+                session_start();
+                if(isset($_SESSION["username"])){
+                    echo "<p>Welcome back,</p>";
+                    echo "<a href='./account.php'>{$_SESSION['username']}</a>";
+                    echo "<a href='./logout.php'>Log Out</a>";
+                }
+                else {
+                    echo "<a href='./login.php'>Log In</a>";
+                    echo "<a href='./signup.php'>Sign Up</a>";
+                }
+            ?>
         </nav>
         <div class="content">
 
