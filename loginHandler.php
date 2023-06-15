@@ -3,7 +3,7 @@
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         session_start();
         // Check credentials
-        require "database_connect.php";
+        require "./database_connect.php";
         $username = $_POST["username"];
         $password = $_POST["password"];
         $sql = "SELECT username, password FROM users WHERE username = '{$username}'";

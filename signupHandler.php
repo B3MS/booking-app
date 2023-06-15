@@ -2,7 +2,7 @@
     // Check for method
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         session_start();
-        require "database_connect.php";
+        require "./database_connect.php";
 
         // Check username availability
         $username = $_POST["username"];
@@ -40,7 +40,7 @@
         VALUES ('{$username}', '{$name}', '{$surname}', '{$email}', '{$password}')";
 
         if ($conn->query($sql) === TRUE) {
-            echo "<script>console.log('New user created successfully')</script>";
+            
             $_SESSION["username"] = $username;
         } else {
             echo "<script>console.log('Error: {$sql} {$conn->error}')</script>";
