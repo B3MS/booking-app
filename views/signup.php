@@ -8,17 +8,10 @@
 </head>
 <body>
     <div class="container">
-        <?php
-            session_start();
-            if(isset($_SESSION["errorMessage"])){
-                echo "<div class='error'>" . $_SESSION['errorMessage'] . "</div>";
-                unset($_SESSION['errorMessage']);
-            }
-        ?>
-        <form action="signupHandler.php" method="post">
+        <form action="" method="post">
             <div class="inputs">
                 <label for="username">Username: </label>
-                <input type="text" name="username" id="username" required>
+                <input type="text" name="user" id="username" required>
 
                 <label for="name">Name: </label>
                 <input type="text" name="name" id="name" required>
@@ -35,8 +28,9 @@
                 <label for="confirmPassword">Confirm Password:</label>
                 <input type="password" name="confirmPassword" id="confirmPassword" required>
             </div>
-            <input type="submit" value="Sign Up">
+            <input type="submit" name="signup" value="Sign Up">
         </form>
+        <a href="">already have an account? Log In here!</a>
     </div>
 </body>
 </html>
