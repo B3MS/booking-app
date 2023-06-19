@@ -20,7 +20,7 @@ if(isset($_POST['login']))
 {
     $users->login($_POST['user'], $_POST['password']);
 }
-if(isset($_GET['logout']) && isset($_SESSION['user']))
+if(isset($_GET['logout']))
 {
     unset($_SESSION['user']);
     header("Location: ./");

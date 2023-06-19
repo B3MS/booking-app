@@ -14,13 +14,13 @@ class Booking
     public function create(string $user, string $date, string $time) : void 
     {
         $sql = "SELECT date, time FROM bookings WHERE date = '{$date}' AND time = '{$time}'";
-        $control = $this->databaseManager->connection->query($sql);
+        $control = $this->databaseManager->connection->query($sql)->fetchAll();
 
-        if($sql == $control)
+        if(!empty($control))
         {
             echo "<script> alert('This date is already booked.'); </script>";
         }
-        else if($user == '' || $date == '' || $time == '')
+        else if($date == '' || $time == '')
         {
             echo "<script> alert('All boxes must be filled.'); </script>";
         }

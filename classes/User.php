@@ -16,7 +16,7 @@ class User
     {
         if($password == $confirmPassword)
         {
-            $sql = "SELECT username FROM users WHERE username = '{$user}'";
+            $sql = "SELECT user FROM users WHERE username = '{$user}'";
             $control = $this->databaseManager->connection->query($sql);
             
             if($sql == $control)
@@ -29,7 +29,7 @@ class User
             }
             else
             {
-                $sql = "INSERT INTO users (username, name, surname, email, password)
+                $sql = "INSERT INTO users (user, name, surname, email, password)
                 VALUES ('{$user}', '{$name}', '{$surname}', '{$email}', '{$password}')";
                 $this->databaseManager->connection->query($sql);
                 $_SESSION['user'] = $user;
@@ -47,7 +47,7 @@ class User
 
     // Delete user.
     public function delete(string $user, string $password) : void {
-        $sql = "SELECT * FROM users WHERE username = '{$user}' AND password = '{$password}'";
+        $sql = "SELECT * FROM users WHERE user = '{$user}' AND password = '{$password}'";
         $result = $this->databaseManager->connection->query($sql)->fetchAll();
 
         if(empty($result))
@@ -56,7 +56,7 @@ class User
         }
         else
         {
-            $sql = "DELETE FROM users WHERE username = '{$user}' AND password = '{$password}'";
+            $sql = "DELETE FROM users WHERE user = '{$user}' AND password = '{$password}'";
             $this->databaseManager->connection->query($sql);
             $sql = "DELETE FROM bookings WHERE user = '{$user}'";
             $this->databaseManager->connection->query($sql);
@@ -71,7 +71,7 @@ class User
     // Login user.
     public function login(string $user, string $password) : void 
     {
-        $sql = "SELECT username, password FROM users WHERE username = '{$user}' AND password = '{$password}'";
+        $sql = "SELECT user, password FROM users WHERE user = '{$user}' AND password = '{$password}'";
         $result = $this->databaseManager->connection->query($sql)->fetchAll();
 
         if(empty($result))
